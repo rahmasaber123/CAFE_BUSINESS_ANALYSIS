@@ -28,130 +28,62 @@ This project demonstrates the implementation of a CAFE BUSINESS ANALYSIS using S
 - **Table Creation**: Created tables for Cities, Customers, Products, Sales. Each table includes relevant columns and relationships.
 
 ```sql
--- library mangment system project
---CREATING BRANCH TABLE
- DROP TABLE IF EXISTS BRANCH ;
- CREATE TABLE BRANCH (
-    branch_id varchar(20) primary key,
-    manager_id	varchar(20),
-    branch_address varchar(55),
-    contact_no varchar(25)
- );
- --CREATING EMPLOYEE TABLE
-  DROP TABLE IF EXISTS EMPLOYEES ;
- CREATE TABLE EMPLOYEES (
-     emp_id varchar(15) primary key,
-     emp_name varchar(20),
-     position	text,
-     salary int,
-     branch_id varchar(10)--foreign key
- );
 
- 
---CREATING BOOKS TABLE
- DROP TABLE IF EXISTS BOOKS ;
- CREATE TABLE BOOKS (
-   isbn varchar(25) primary key,
-   book_title varchar(75),
-   category varchar(15),	
-   rental_price float,
-   status	varchar(10),
-   author varchar(35),
-   publisher varchar(55)
+DROP TABLE IF EXISTS sales;
+DROP TABLE IF EXISTS customers;
+DROP TABLE IF EXISTS products;
+DROP TABLE IF EXISTS city;
+
+-- Import Rules
+-- 1st import to city
+-- 2nd import to products
+-- 3rd import to customers
+-- 4th import to sales
+
+
+CREATE TABLE city
+(
+	city_id	INT PRIMARY KEY,
+	city_name VARCHAR(15),	
+	population	BIGINT,
+	estimated_rent	FLOAT,
+	city_rank INT
 );
 
- ALTER TABLE BOOKS
- ALTER COLUMN  category TYPE VARCHAR (40);
-
---creating table members
- DROP TABLE IF EXISTS  MEMBERS ;
- CREATE TABLE MEMBERS (
-    member_id varchar(10) primary key,
-    member_name varchar(25),
-    member_address varchar(75),
-    reg_date Date
-);
- 
---creating issued_status table
- DROP TABLE IF EXISTS  issued_status;
- create table issued_status (
-    issued_id varchar(15) primary key,
-    issued_member_id varchar(10),--fk members
-    issued_book_name varchar(75),
-    issued_date	Date,
-    issued_book_isbn	varchar(25),--fk books
-    issued_emp_id varchar(15)--fk employees
-) ;
---creating return status table
- DROP TABLE IF EXISTS  return_status;
- create table return_status 
- (
-    return_id varchar(15)  primary key,
-    issued_id	varchar(15) ,--fk issued_status
-    return_book_name	varchar(75),
-    return_date Date,
-    return_book_isbn varchar(25) --fk books 
+CREATE TABLE customers
+(
+	customer_id INT PRIMARY KEY,	
+	customer_name VARCHAR(25),	
+	city_id INT,
+	CONSTRAINT fk_city FOREIGN KEY (city_id) REFERENCES city(city_id)
 );
 
 
-
---add foreign keys constraints
-ALTER TABLE issued_status 
-ADD CONSTRAINT FK_MEMEBERS
-FOREIGN KEY (issued_member_id)
-REFERENCES MEMBERS(member_id);
-
---!!
-
-ALTER TABLE issued_status 
-ADD CONSTRAINT FK_BOOKS
-FOREIGN KEY (issued_book_isbn)
-REFERENCES BOOKS(isbn);
-
---!!
-ALTER TABLE issued_status 
-ADD CONSTRAINT FK_EMPOLYEES
-FOREIGN KEY (issued_emp_id) 
-REFERENCES EMPLOYEES(emp_id);
+CREATE TABLE products
+(
+	product_id	INT PRIMARY KEY,
+	product_name VARCHAR(35),	
+	Price float
+);
 
 
---!!
+CREATE TABLE sales
+(
+	sale_id	INT PRIMARY KEY,
+	sale_date	date,
+	product_id	INT,
+	customer_id	INT,
+	total FLOAT,
+	rating INT,
+	CONSTRAINT fk_products FOREIGN KEY (product_id) REFERENCES products(product_id),
+	CONSTRAINT fk_customers FOREIGN KEY (customer_id) REFERENCES customers(customer_id) 
+);
 
-
-ALTER TABLE return_status 
-ADD CONSTRAINT FK_issued_status
-FOREIGN KEY (issued_id)
-REFERENCES issued_status( issued_id);
-
-
---!!
-ALTER TABLE return_status 
-ADD CONSTRAINT FK_BOOKS
-FOREIGN KEY (return_book_isbn)
-REFERENCES BOOKS(isbn);
---!!
-
-ALTER TABLE return_status 
-ADD CONSTRAINT FK_BOOKS
-FOREIGN KEY (return_book_isbn) 
-REFERENCES BOOKS(isbn);
-
-
---!!
-
- ALTER TABLE EMPLOYEES
-ADD CONSTRAINT FK_BRANCH
-FOREIGN KEY (branch_id) 
-REFERENCES BRANCH(branch_id);
+-- END of SCHEMAS
 
 ```
 
-### 2. CRUD Operations
 
-- **Create**: Inserted sample records into the `books` table.
-- **Read**: Retrieved and displayed data from various tables.
-- **Update**: Updated records in the `employees` table.
-- **Delete**: Removed records from the `members` table as needed.
 
 **Task 1. Create a New Book Record**
 -- "978-1-60129-456-2', 'To Kill a Mockingbird', 'Classic', 6.00, 'yes', 'Harper Lee', 'J.B. Lippincott & Co.')"
@@ -539,12 +471,12 @@ GROUP BY 1,2;
 ## Reports
 
 - **Database Schema**: Detailed table structures and relationships.
-- **Data Analysis**: Insights into book categories, employee salaries, member registration trends, and issued books.
-- **Summary Reports**: Aggregated data on high-demand books and employee performance.
+- **Data Analysis**: Insights into CITIES , CUSTOMERS BEHAVIORS ,COFFEE CONSUMTIONS,REVENUES.
+- **Summary Reports**: Aggregated data on high-demand CITIES andCOFFE CONSUMERS performance.
 
 ## Conclusion
 
-This project demonstrates the application of SQL skills in creating and managing a library management system. It includes database setup, data manipulation, and advanced querying, providing a solid foundation for data management and analysis.
+This project demonstrates the application of SQL skills in creating and managing a CAFE BUSINESS ANALYSIS system. It includes database setup, data manipulation, and advanced querying, providing a solid foundation for data management and analysis.
 
 ## How to Use
 
@@ -553,8 +485,8 @@ This project demonstrates the application of SQL skills in creating and managing
    git clone https://github.com/rahmasaber123/LIBRARAY_MANAGMENT_SYSTEM.git
    ```
 
-2. **Set Up the Database**: Execute the SQL scripts in the `database_setup.sql` file to create and populate the database.
-3. **Run the Queries**: Use the SQL queries in the `analysis_queries.sql` file to perform the analysis.
+2. **Set Up the Database**: Execute the SQL scripts in the `Schems.sql` file to create and populate the database.
+3. **Run the Queries**: Use the SQL queries in the `Cafe_Business_Solutions.sql` file to perform the analysis.
 4. **Explore and Modify**: Customize the queries as needed to explore different aspects of the data or answer additional questions.
 
 ## Author - RAHMA SABER ABBAS 
