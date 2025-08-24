@@ -1,23 +1,22 @@
 # CAFE_BUSINESS_ANALYSIS
 THIS PROJECT GIVE A CLEAR SIGHT ABOUT A CAFE BUSINESS ANALYSIS ANSWERING QUESTIONS USING SQL QUERIES THAT HELP CAFE BUSINESS TO GROW 
-# LIBRARAY_MANAGMENT_SYSTEM 
 
 
 ## Project Overview
 
-**Project Title**: Library Management System  
+**Project Title** CAFE BUSINESS ANALYSIS  
 
-**Database**: `LIBRARY_MANAGEMENT_SYSTEM`
+**Database**: `CAFE_ANALYSIS`
 
-This project demonstrates the implementation of a Library Management System using SQL. It includes creating and managing tables, performing CRUD operations, and executing advanced SQL queries. The goal is to showcase skills in database design, manipulation, and querying.
+This project demonstrates the implementation of a CAFE BUSINESS ANALYSIS using SQL. It includes creating and managing tables, performing CRUD operations, and executing advanced SQL queries. The goal is to showcase skills in database design, manipulation, and querying.
 
-![Library_project](https://github.com/rahmasaber123/LIBRARAY_MANAGMENT_SYSTEM/blob/1263ebd02c0ded366cff71be9a1bb7402593d284/library.jpeg)
+![Library_project](https://github.com/rahmasaber123/CAFE_BUSINESS_ANALYSIS/blob/main/CAFE_PIC.jpeg?raw=true)
 
 ## Objectives
 
-1. **Set up the Library Management System Database**: Create and populate the database with tables for branches, employees, members, books, issued status, and return status.
+1. **Set up the CAFE BUSINESS ANALYSIS Database**: Create and populate the database with tables for Cities, Customers,Products, Sales, status.
 2. **CRUD Operations**: Perform Create, Read, Update, and Delete operations on the data.
-3. **CTAS (Create Table As Select)**: Utilize CTAS to create new tables based on query results.
+3. **CTAS (Create Table As Select)**: Utilize CTE to create new tables based on query results.
 4. **Advanced SQL Queries**: Develop complex queries to analyze and retrieve specific data.
 
 ## Project Structure
