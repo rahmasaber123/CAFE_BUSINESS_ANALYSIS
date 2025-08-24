@@ -22,10 +22,10 @@ This project demonstrates the implementation of a CAFE BUSINESS ANALYSIS using S
 ## Project Structure
 
 ### 1. Database Setup
-![ERD](https://github.com/rahmasaber123/LIBRARAY_MANAGMENT_SYSTEM/blob/87feb57fa51d8b8bb752379168c2668fef77c9af/LIBRARY_ERD.jpeg)
+![ERD](https://github.com/rahmasaber123/CAFE_BUSINESS_ANALYSIS/blob/main/Cafe_schema.png?raw=true)
 
-- **Database Creation**: Created a database named `lIBRARY_MANAGEMENT_SYSTEM`.
-- **Table Creation**: Created tables for branches, employees, members, books, issued status, and return status. Each table includes relevant columns and relationships.
+- **Database Creation**: Created a database named `CAFE_ANALYSIS`.
+- **Table Creation**: Created tables for Cities, Customers, Products, Sales. Each table includes relevant columns and relationships.
 
 ```sql
 -- library mangment system project
